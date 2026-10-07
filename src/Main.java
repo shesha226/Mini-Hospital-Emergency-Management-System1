@@ -4,6 +4,7 @@ public class Main {
 
         PatientBST patientBST = new PatientBST();
         EmergencyQueue emergencyQueue = new EmergencyQueue();
+        TreatmentStack treatmentStack = new TreatmentStack();
 
        
 
@@ -37,11 +38,13 @@ public class Main {
                 "Chest Pain"
         );
 
+        
+        System.out.println("PATIENT RECORDS");
+
         patientBST.insert(patient1);
         patientBST.insert(patient2);
         patientBST.insert(patient3);
 
-        System.out.println("PATIENT RECORDS");
         patientBST.displayInOrder();
 
 
@@ -62,11 +65,22 @@ public class Main {
 
         Patient nextPatient = emergencyQueue.dequeue();
 
-        if (nextPatient != null) {
-            System.out.println("Patient selected for treatment:");
-            System.out.println(nextPatient);
-        }
+if (nextPatient != null) {
 
+    System.out.println("Patient selected for treatment:");
+    System.out.println(nextPatient);
+
+    Treatment treatment = new Treatment(
+            1,
+            nextPatient.getPatientId(),
+            "2026-10-07",
+            "Dr. Perera",
+            nextPatient.getMedicalCondition(),
+            "Medication and observation"
+    );
+
+    treatmentStack.push(treatment);
+}
 
 
         System.out.println(" REMAINING PATIENTS ");
