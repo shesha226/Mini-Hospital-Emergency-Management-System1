@@ -5,6 +5,7 @@ public class Main {
         PatientBST patientBST = new PatientBST();
         EmergencyQueue emergencyQueue = new EmergencyQueue();
         TreatmentStack treatmentStack = new TreatmentStack();
+        VisitLinkedList visitLinkedList = new VisitLinkedList();
 
        
 
@@ -86,5 +87,59 @@ if (nextPatient != null) {
         System.out.println(" REMAINING PATIENTS ");
 
         emergencyQueue.displayQueue();
+
+        System.out.println(" VISIT RECORDS ");
+        treatmentStack.displayStack();
+
+        System.out.println(" ADDING VISIT RECORDS ");
+        Visit visit1 = new Visit(
+                1,
+                "2026-10-07",
+                "10:30 AM",
+                "Dr. Perera",
+                "Medication and observation"
+        );
+
+        Visit visit2 = new Visit(
+                2,
+                "2026-10-07",
+                "11:00 AM",
+                "Dr. Perera",
+                "Medication and observation"
+        );
+
+        Visit visit3 = new Visit(
+                3,
+                "2026-10-07",
+                "11:30 AM",
+                "Dr. Perera",
+                "Medication and observation"
+        );
+
+        visitLinkedList.addVisit(visit1);
+        visitLinkedList.addVisit(visit2);
+        visitLinkedList.addVisit(visit3);
+
+        visitLinkedList.displayVisits();
+
+        System.out.println(" SEARCHING VISIT RECORDS ");
+
+        Visit FoundVisit = visitLinkedList.searchVisit(2);
+        if (FoundVisit != null) {
+            System.out.println("Visit found: " + FoundVisit);
+    } else {
+            System.out.println("Visit not found.");
+    }
+        
+    System.out.println("REMOVING VISIT RECORDS");
+    Visit removedVisit = visitLinkedList.removeVisit(1);
+    if (removedVisit != null) {
+        System.out.println("Visit removed: " + removedVisit);
+    } else {
+        System.out.println("Visit not found.");
+    }
+
+    System.out.println(" UPDATED VISIT RECORDS ");
+    visitLinkedList.displayVisits();
     }
 }
